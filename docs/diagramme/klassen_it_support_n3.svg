@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 640" font-family="Consolas, 'Courier New', monospace">
+  <style>
+    .box    { fill: #ffffff; stroke: #333333; stroke-width: 1.5; }
+    .boxdash{ fill: #fafafa; stroke: #888888; stroke-width: 1.5; stroke-dasharray: 6 4; }
+    .div    { stroke: #333333; stroke-width: 1; }
+    .divd   { stroke: #888888; stroke-width: 1; }
+    .name   { font-size: 15px; font-weight: bold; text-anchor: middle; fill: #111111; }
+    .mem    { font-size: 13px; fill: #111111; }
+    .rel    { stroke: #333333; stroke-width: 1.5; fill: none; }
+    .tri    { fill: #ffffff; stroke: #333333; stroke-width: 1.5; }
+    .diamond{ fill: #333333; stroke: #333333; stroke-width: 1.5; }
+    .cap    { font-size: 12px; fill: #555555; font-style: italic; }
+    .title  { font-size: 16px; font-weight: bold; fill: #111111; }
+  </style>
+
+  <text x="40" y="34" class="title">Klassenstruktur Niveau 3 — Komposition + monitor()</text>
+
+  <!-- ===================== NetworkComponent ===================== -->
+  <rect class="box" x="40" y="90" width="300" height="176"/>
+  <line class="div" x1="40" y1="116" x2="340" y2="116"/>
+  <line class="div" x1="40" y1="164" x2="340" y2="164"/>
+  <text x="190" y="109" class="name">NetworkComponent</text>
+  <text x="50" y="135" class="mem">- ip_address: str</text>
+  <text x="50" y="153" class="mem">- port: int</text>
+  <text x="50" y="183" class="mem">+ renew_ip(new_ip): bool</text>
+  <text x="50" y="201" class="mem">- is_company_address(ip): bool</text>
+  <text x="50" y="219" class="mem">+ get_ip_address(): str</text>
+  <text x="50" y="237" class="mem">+ get_port(): int</text>
+  <text x="50" y="255" class="mem">+ __str__(): str</text>
+
+  <!-- ===================== Device ===================== -->
+  <rect class="box" x="420" y="90" width="330" height="338"/>
+  <line class="div" x1="420" y1="116" x2="750" y2="116"/>
+  <line class="div" x1="420" y1="254" x2="750" y2="254"/>
+  <text x="585" y="109" class="name">Device</text>
+  <text x="430" y="135" class="mem">- device_type: str</text>
+  <text x="430" y="153" class="mem">- vendor: str</text>
+  <text x="430" y="171" class="mem">- model: str</text>
+  <text x="430" y="189" class="mem">- network: NetworkComponent</text>
+  <text x="430" y="207" class="mem">- status: str</text>
+  <text x="430" y="225" class="mem">- active: bool</text>
+  <text x="430" y="243" class="mem">- utilization: int</text>
+  <text x="430" y="273" class="mem">+ reboot(): None</text>
+  <text x="430" y="291" class="mem">+ activate(): None</text>
+  <text x="430" y="309" class="mem">+ set_utilization(value): bool</text>
+  <text x="430" y="327" class="mem">+ get_status(): str</text>
+  <text x="430" y="345" class="mem">+ get_utilization(): int</text>
+  <text x="430" y="363" class="mem">+ is_active(): bool</text>
+  <text x="430" y="381" class="mem">+ get_network(): NetworkComponent</text>
+  <text x="430" y="399" class="mem">+ monitor(): str</text>
+  <text x="430" y="417" class="mem">+ __str__(): str</text>
+
+  <!-- ===================== Printer ===================== -->
+  <rect class="box" x="420" y="470" width="330" height="122"/>
+  <line class="div" x1="420" y1="496" x2="750" y2="496"/>
+  <line class="div" x1="420" y1="526" x2="750" y2="526"/>
+  <text x="585" y="489" class="name">Printer</text>
+  <text x="430" y="515" class="mem">- toner_percent: int</text>
+  <text x="430" y="545" class="mem">+ use_toner(amount): None</text>
+  <text x="430" y="563" class="mem">+ monitor(): str</text>
+  <text x="430" y="581" class="mem">+ __str__(): str</text>
+
+  <!-- ===================== C1-Platzhalter (Ihr Entwurf) ===================== -->
+  <rect class="boxdash" x="40" y="360" width="300" height="122"/>
+  <line class="divd" x1="40" y1="386" x2="340" y2="386"/>
+  <line class="divd" x1="40" y1="434" x2="340" y2="434"/>
+  <text x="190" y="379" class="name">«Ihre C1-Klasse»</text>
+  <text x="50" y="405" class="mem">- network: NetworkComponent</text>
+  <text x="50" y="423" class="mem">- … (eigene Felder)</text>
+  <text x="50" y="453" class="mem">+ monitor(): str</text>
+  <text x="50" y="471" class="mem">+ … (eigene Methoden)</text>
+
+  <!-- ===================== Komposition Device hat-ein NetworkComponent ===================== -->
+  <line class="rel" x1="404" y1="200" x2="340" y2="200"/>
+  <polygon class="diamond" points="420,200 412,194 404,200 412,206"/>
+  <text x="345" y="192" class="cap">hat-ein</text>
+
+  <!-- ===================== Komposition C1 hat-ein NetworkComponent ===================== -->
+  <line class="rel" x1="120" y1="344" x2="120" y2="266"/>
+  <polygon class="diamond" points="120,360 114,352 120,344 126,352"/>
+  <text x="128" y="318" class="cap">hat-ein</text>
+
+  <!-- ===================== Vererbung Printer -> Device ===================== -->
+  <line class="rel" x1="585" y1="470" x2="585" y2="442"/>
+  <polygon class="tri" points="585,428 576,442 594,442"/>
+  <text x="600" y="458" class="cap">ist-ein</text>
+</svg>

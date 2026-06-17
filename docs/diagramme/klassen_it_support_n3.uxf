@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>40</y>
+      <w>320</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>NetworkComponent
+--
+-ip_address: str
+-port: int
+--
++renew_ip(new_ip): bool
+-is_company_address(ip): bool
++get_ip_address(): str
++get_port(): int
++__str__(): str</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>40</y>
+      <w>360</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>Device
+--
+-device_type: str
+-vendor: str
+-model: str
+-network: NetworkComponent
+-status: str
+-active: bool
+-utilization: int
+--
++reboot(): None
++activate(): None
++set_utilization(value): bool
++get_status(): str
++get_utilization(): int
++is_active(): bool
++get_network(): NetworkComponent
++monitor(): str
++__str__(): str</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>470</y>
+      <w>360</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Printer
+--
+-toner_percent: int
+--
++use_toner(amount): None
++monitor(): str
++__str__(): str</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>360</y>
+      <w>320</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>fg=gray
+/«Ihre C1-Klasse»/
+--
+-network: NetworkComponent
+-... (eigene Felder)
+--
++monitor(): str
++... (eigene Methoden)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>400</y>
+      <w>40</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+ist-ein</panel_attributes>
+    <additional_attributes>20.0;10.0;20.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>120</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+hat-ein (Komposition)</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>220</y>
+      <w>40</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+hat-ein (Komposition)</panel_attributes>
+    <additional_attributes>20.0;140.0;20.0;10.0</additional_attributes>
+  </element>
+</diagram>

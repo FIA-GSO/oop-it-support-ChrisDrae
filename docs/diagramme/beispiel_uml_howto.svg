@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" font-family="Consolas, 'Courier New', monospace">
+  <style>
+    .box   { fill: #ffffff; stroke: #333333; stroke-width: 1.5; }
+    .div   { stroke: #333333; stroke-width: 1; }
+    .name  { font-size: 15px; font-weight: bold; text-anchor: middle; fill: #111111; }
+    .mem   { font-size: 13px; fill: #111111; }
+    .rel   { stroke: #333333; stroke-width: 1.5; fill: none; }
+    .tri   { fill: #ffffff; stroke: #333333; stroke-width: 1.5; }
+    .dia   { fill: #333333; stroke: #333333; stroke-width: 1.5; }
+    .cap   { font-size: 12px; fill: #555555; font-style: italic; }
+    .title { font-size: 16px; font-weight: bold; fill: #111111; }
+  </style>
+
+  <text x="60" y="36" class="title">Beispiel — Vererbung und Komposition (fachfremd)</text>
+
+  <!-- ===================== Vehicle (Oberklasse) ===================== -->
+  <rect class="box" x="60" y="70" width="240" height="92"/>
+  <line class="div" x1="60" y1="96"  x2="300" y2="96"/>
+  <line class="div" x1="60" y1="126" x2="300" y2="126"/>
+  <text x="180" y="89" class="name">Vehicle</text>
+  <text x="70" y="115" class="mem">- max_speed: int</text>
+  <text x="70" y="145" class="mem">+ describe(): str</text>
+
+  <!-- ===================== Car (ist-ein Vehicle) ===================== -->
+  <rect class="box" x="60" y="212" width="240" height="110"/>
+  <line class="div" x1="60" y1="238" x2="300" y2="238"/>
+  <line class="div" x1="60" y1="286" x2="300" y2="286"/>
+  <text x="180" y="231" class="name">Car</text>
+  <text x="70" y="257" class="mem">- seats: int</text>
+  <text x="70" y="275" class="mem">- engine: Engine</text>
+  <text x="70" y="305" class="mem">+ describe(): str</text>
+
+  <!-- ===================== Engine (Bestandteil von Car) ===================== -->
+  <rect class="box" x="400" y="212" width="210" height="92"/>
+  <line class="div" x1="400" y1="238" x2="610" y2="238"/>
+  <line class="div" x1="400" y1="268" x2="610" y2="268"/>
+  <text x="505" y="231" class="name">Engine</text>
+  <text x="410" y="257" class="mem">- power_kw: int</text>
+  <text x="410" y="287" class="mem">+ start(): None</text>
+
+  <!-- ===================== Vererbung: Car -> Vehicle (hohles Dreieck) ===================== -->
+  <line class="rel" x1="180" y1="212" x2="180" y2="176"/>
+  <polygon class="tri" points="180,162 171,176 189,176"/>
+  <text x="192" y="198" class="cap">ist-ein</text>
+
+  <!-- ===================== Komposition: Car hat-ein Engine (gefüllte Raute) ===================== -->
+  <polygon class="dia" points="300,250 312,243 324,250 312,257"/>
+  <line class="rel" x1="324" y1="250" x2="400" y2="250"/>
+  <text x="338" y="243" class="cap">hat-ein</text>
+</svg>

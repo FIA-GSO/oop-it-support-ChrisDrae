@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 600" font-family="Consolas, 'Courier New', monospace">
+  <style>
+    .box   { fill: #ffffff; stroke: #333333; stroke-width: 1.5; }
+    .div   { stroke: #333333; stroke-width: 1; }
+    .name  { font-size: 15px; font-weight: bold; text-anchor: middle; fill: #111111; }
+    .mem   { font-size: 13px; fill: #111111; }
+    .rel   { stroke: #333333; stroke-width: 1.5; fill: none; }
+    .tri   { fill: #ffffff; stroke: #333333; stroke-width: 1.5; }
+    .cap   { font-size: 12px; fill: #555555; font-style: italic; }
+    .title { font-size: 16px; font-weight: bold; fill: #111111; }
+  </style>
+
+  <text x="40" y="36" class="title">Klassenstruktur Niveau 1 + 2 — Vererbung</text>
+
+  <!-- ===================== NetworkComponent ===================== -->
+  <rect class="box" x="40" y="70" width="300" height="176"/>
+  <line class="div" x1="40" y1="96"  x2="340" y2="96"/>
+  <line class="div" x1="40" y1="144" x2="340" y2="144"/>
+  <text x="190" y="89" class="name">NetworkComponent</text>
+  <text x="50" y="115" class="mem">- ip_address: str</text>
+  <text x="50" y="133" class="mem">- port: int</text>
+  <text x="50" y="163" class="mem">+ renew_ip(new_ip): bool</text>
+  <text x="50" y="181" class="mem">- is_company_address(ip): bool</text>
+  <text x="50" y="199" class="mem">+ get_ip_address(): str</text>
+  <text x="50" y="217" class="mem">+ get_port(): int</text>
+  <text x="50" y="235" class="mem">+ __str__(): str</text>
+  <text x="40" y="272" class="cap">In Niveau 1/2 eigenständig —</text>
+  <text x="40" y="288" class="cap">Device hält IP/Port direkt.</text>
+
+  <!-- ===================== Device ===================== -->
+  <rect class="box" x="430" y="70" width="330" height="320"/>
+  <line class="div" x1="430" y1="96"  x2="760" y2="96"/>
+  <line class="div" x1="430" y1="252" x2="760" y2="252"/>
+  <text x="595" y="89" class="name">Device</text>
+  <text x="440" y="115" class="mem">- device_type: str</text>
+  <text x="440" y="133" class="mem">- vendor: str</text>
+  <text x="440" y="151" class="mem">- model: str</text>
+  <text x="440" y="169" class="mem">- ip_address: str</text>
+  <text x="440" y="187" class="mem">- port: int</text>
+  <text x="440" y="205" class="mem">- status: str</text>
+  <text x="440" y="223" class="mem">- active: bool</text>
+  <text x="440" y="241" class="mem">- utilization: int</text>
+  <text x="440" y="271" class="mem">+ reboot(): None</text>
+  <text x="440" y="289" class="mem">+ activate(): None</text>
+  <text x="440" y="307" class="mem">+ set_utilization(value): bool</text>
+  <text x="440" y="325" class="mem">+ get_status(): str</text>
+  <text x="440" y="343" class="mem">+ get_utilization(): int</text>
+  <text x="440" y="361" class="mem">+ is_active(): bool</text>
+  <text x="440" y="379" class="mem">+ __str__(): str</text>
+
+  <!-- ===================== Printer ===================== -->
+  <rect class="box" x="430" y="440" width="330" height="104"/>
+  <line class="div" x1="430" y1="466" x2="760" y2="466"/>
+  <line class="div" x1="430" y1="496" x2="760" y2="496"/>
+  <text x="595" y="459" class="name">Printer</text>
+  <text x="440" y="485" class="mem">- toner_percent: int</text>
+  <text x="440" y="515" class="mem">+ use_toner(amount): None</text>
+  <text x="440" y="533" class="mem">+ __str__(): str</text>
+
+  <!-- ===================== Vererbung Printer -> Device ===================== -->
+  <line class="rel" x1="595" y1="440" x2="595" y2="404"/>
+  <polygon class="tri" points="595,390 586,404 604,404"/>
+  <text x="610" y="420" class="cap">ist-ein</text>
+</svg>
